@@ -111,6 +111,8 @@ document.addEventListener( 'DOMContentLoaded', () =>
             if ( contacts_valides.length > 0 )
             {
                 exportToExcel( contacts_valides, nom.value );
+                // Réinitialiser le formulaire 
+                form_submit_contact.reset();
             } else
             {
                 console.log( "Aucun contact valide à exporter." );
