@@ -89,11 +89,11 @@ document.addEventListener( 'DOMContentLoaded', () =>
         if ( nom.value != "" && contact.value != "" )
         {
             contact.value = contact.value.trim();
-            var contacts = contact.value.splice( ',' );
+            var contacts = contact.value.split( ',' );
             var contacts_valides = [];
             for ( let i = 0; i < contacts.length; i++ )
             {
-                let element = contacts[ i ];
+                let element = contacts[ i ].trim();
                 var verifyNumber = checkPhoneNumber( element );
 
                 if ( verifyNumber )
