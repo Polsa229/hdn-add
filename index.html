@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Pétas Ola-Oluwa HODONOU" />
+    <meta name="description" content="" />
+    <title>Input into excel add Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="scripts.js"></script>
+  </head>
+  <body class="h-screen flex justify-center items-center">
+    <div class="card">
+      <form class="form" id="form-submit-numbers">
+        <div class="title">Contacts</div>
+        <input type="text" placeholder="Nom du groupe" class="input" id="nom">
+        <textarea placeholder="Vos numeros" id="contacts"></textarea>
+        <span class="muted text-sma">
+          Veillez séparer les contacts par des points-virgules (;)
+        </span>
+        <button>Soumettre</button>
+      </form>
+    </div>
+  </body>
+</html>
