@@ -51,17 +51,28 @@ function getCountryFromPhoneNumber ( phoneNumber )
     }
 }
 
-function getCountryCodeFromCountry ( country )
+function exportToExcel ( data, nom )
 {
-    try
-    {
-        return libphonenumber.getCountryCallingCode( country );
-    } catch ( error )
-    {
-        return null;
-    }
+    const worksheet = XLSX.utils.json_to_sheet( data );
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet( workbook, worksheet, "Contacts" );
+    const excelBuffer = XLSX.write( workbook, { bookType: 'xlsx', type: 'array' } );
+    saveAsExcelFile( excelBuffer, nom + ".xlsx" );
 }
 
+function saveAsExcelFile ( buffer, fileName )
+{
+    const data = new Blob( [ buffer ], { type: 'application/octet-stream' } );
+    const url = window.URL.createObjectURL( data );
+    const a = document.createElement( 'a' );
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    setTimeout( () =>
+    {
+        window.URL.revokeObjectURL( url );
+    }, 0 );
+}
 
 
 document.addEventListener( 'DOMContentLoaded', () =>
@@ -96,6 +107,14 @@ document.addEventListener( 'DOMContentLoaded', () =>
 
             // Maintenant, vous pouvez utiliser contacts_valides comme nécessaire (envoyer à un serveur, etc.)
             console.log( "Contacts valides: ", contacts_valides );
+
+            if ( contacts_valides.length > 0 )
+            {
+                exportToExcel( contacts_valides, nom.value );
+            } else
+            {
+                console.log( "Aucun contact valide à exporter." );
+            }
         }
     } )
 } );
