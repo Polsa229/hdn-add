@@ -3,18 +3,16 @@ function checkPhoneNumber ( phoneNumber )
 {
     try
     {
-        var numberFormatted = getCountryFromPhoneNumber( phoneNumber ).number;
+        var validationNumber = isValidPhoneNumber( phoneNumber );
 
-        var validationNumber = isValidPhoneNumber( numberFormatted );
-
-        console.log(
-            "Le numéro de téléphone formatté est  : " + numberFormatted
-        );
+        // console.log(
+        //     "Le numéro de téléphone formatté est  : " + numberFormatted
+        // );
         console.log(
             "La validation du numéro de téléphone est  : " + validationNumber
         );
 
-        return { numberFormatted, validationNumber };
+        return validationNumber;
     } catch ( error )
     {
         return null;
@@ -35,21 +33,11 @@ function isValidPhoneNumber ( phoneNumber )
         return libphonenumber.isValidNumber( phoneNumberObj );
     } catch ( error )
     {
+        console.error( 'Erreur lors de la vérification du numero. Erreur: ', error );
         return false;
     }
 }
 
-function getCountryFromPhoneNumber ( phoneNumber )
-{
-    try
-    {
-        var parsedNumber = libphonenumber.parsePhoneNumber( phoneNumber );
-        return parsedNumber;
-    } catch ( error )
-    {
-        return null;
-    }
-}
 
 function exportToExcel ( data, nom )
 {
@@ -89,25 +77,26 @@ document.addEventListener( 'DOMContentLoaded', () =>
         if ( nom.value != "" && contact.value != "" )
         {
             contact.value = contact.value.trim();
-            var contacts = contact.value.split( ',' );
+            var contacts = contact.value.split( ', ' );
+            // console.log( "contacts: ", contacts );
+
             var contacts_valides = [];
             for ( let i = 0; i < contacts.length; i++ )
             {
-                let element = contacts[ i ].trim();
-                // var verifyNumber = checkPhoneNumber( element );
+                let element = contacts[ i ].replace( /\s/g, '' );
 
-                // if ( verifyNumber )
-                // {
-                // }
-                element = verifyNumber.numberFormatted;
+                var verifyNumber = checkPhoneNumber( element );
 
-                contacts_valides.push( { Parents: `${ i } ` + nom.value, Code: element } )
+                if ( verifyNumber )
+                {
+                    contacts_valides.push( { Parents: `${ i }-contact ` + nom.value, Code: element } )
+                }
             }
 
 
             // Maintenant, vous pouvez utiliser contacts_valides comme nécessaire (envoyer à un serveur, etc.)
-            console.log( "Contacts valides: ", contacts_valides );
-
+            // console.log( "Contacts valides: ", contacts_valides );
+            document.querySelector( '.title' ).innerHTML = `Contacts: ${ contacts_valides.length }`
             if ( contacts_valides.length > 0 )
             {
                 exportToExcel( contacts_valides, nom.value );
@@ -115,7 +104,8 @@ document.addEventListener( 'DOMContentLoaded', () =>
                 form_submit_contact.reset();
             } else
             {
-                console.log( "Aucun contact valide à exporter." );
+                // console.log( "Aucun contact valide à exporter." );
+                console.error( "Aucun contact valide à exporter." );
             }
         }
     } )
