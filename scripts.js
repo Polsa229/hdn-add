@@ -94,14 +94,14 @@ document.addEventListener( 'DOMContentLoaded', () =>
             for ( let i = 0; i < contacts.length; i++ )
             {
                 let element = contacts[ i ].trim();
-                var verifyNumber = checkPhoneNumber( element );
+                // var verifyNumber = checkPhoneNumber( element );
 
-                if ( verifyNumber )
-                {
-                    element = verifyNumber.numberFormatted;
+                // if ( verifyNumber )
+                // {
+                // }
+                element = verifyNumber.numberFormatted;
 
-                    contacts_valides.push( { Parents: `${ i } ` + nom.value, Code: element } )
-                }
+                contacts_valides.push( { Parents: `${ i } ` + nom.value, Code: element } )
             }
 
 
