@@ -14,11 +14,21 @@
     <div class="card">
       <form class="form" id="form-submit-numbers">
         <div class="title">Contacts</div>
-        <input type="text" placeholder="Nom du groupe" class="input" id="nom">
-        <textarea placeholder="Vos numeros" id="contacts"></textarea>
-        <span class="muted text-sma">
-          Veillez séparer les contacts par des points-virgules (;)
-        </span>
+        <input
+          type="text"
+          required
+          placeholder="Nom du groupe"
+          class="input"
+          id="nom"
+        />
+        <textarea placeholder="Vos numeros" id="contacts" required></textarea>
+        <div>
+          <strong>NB: </strong>
+          <span class="text-secondary text-sm">
+            Veillez séparer les contacts par des points-virgules (;)
+          </span>
+        </div>
+
         <button>Soumettre</button>
       </form>
     </div>
