@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../icons/voyons-logo16x16.png"
+      type="image/x-icon"
+    />
+    <title>Voyons Voir</title>
+    <!-- Include the styles -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.css" />
+    <style>
+      body {
+        width: 300px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="containe-fluid">
+      <div class="card">
+        <div class="card-header">Extraction de groupe</div>
+        <div class="card-body">
+          <div id="result_scanning_groupe" style="display: none">
+            <p class="border border-1 w-100 text-end">
+                <a href="#" class="btn btn-outline-secondary" id="btn_close_result_scanning"> Fermer </a>
+            </p>
+            <p id="nom_groupe_extract"></p>
+            <p id="number_membre_groupe_extract"></p>
+          </div>
+          <a href="#" class="btn btn-primary" id="btn_popup"> Scanner </a>
+        </div>
+      </div>
+    </div>
+    <script src="bootstrap/bootstrap.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

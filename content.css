@@ -1,0 +1,14 @@
+/* body {
+  background-color: #fed204 !important;
+  color: #950603 !important;
+} */
+
+/* * {
+  user-select: auto !important;
+} */
+* {
+  -webkit-user-select: auto !important; /* Safari */
+  -moz-user-select: auto !important; /* Firefox */
+  -ms-user-select: auto !important; /* Internet Explorer/Edge */
+  user-select: auto !important; /* Standard */
+}

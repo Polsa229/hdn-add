@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Voyons Voir",
+  "version": "0.0.7",
+  "description": "",
+  "icons": {
+    "16": "icons/voyons-logo16x16.png",
+    "32": "icons/voyons-logo32x32.png",
+    "48": "icons/voyons-logo48x48.png",
+    "128": "icons/voyons-logo128x128.png"
+  },
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://psie.bj/candidat/candidature/*"],
+      "js": ["Psie/content.js"],
+      "css": ["Psie/content.css"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.evalcandidat.org/*"],
+      "js": ["Psie/evaluation.js"],
+      "css": ["Psie/content.css"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*.*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

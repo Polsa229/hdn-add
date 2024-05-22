@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Voyons Voir Add",
+  "version": "1.0",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/voyons-logo16x16.png",
+    "32": "icons/voyons-logo32x32.png",
+    "48": "icons/voyons-logo48x48.png",
+    "128": "icons/voyons-logo128x128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/voyons-logo16x16.png",
+      "32": "icons/voyons-logo32x32.png",
+      "48": "icons/voyons-logo48x48.png",
+      "128": "icons/voyons-logo128x128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["extract-group.js"]
+    }
+  ]
+}
