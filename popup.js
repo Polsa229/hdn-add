@@ -38,7 +38,7 @@ document.addEventListener( 'DOMContentLoaded', () =>
                                     document.getElementById( 'result' ).innerHTML = `
                                         <hr />
                                         <div class="d-flex mb-1"><span><strong>Groupe:</strong> ${ nomGroup }</span></div>
-                                        <div class="d-flex mb-1"><span><strong>Contact:</strong> ${ contacts_valides.length }</span></div>
+                                        <div class="d-flex mb-1"><span><strong>Contact:</strong> ${ contacts_valides.length } nouveau(x) contact(s)</span></div>
                                         <div>
                                             <button id="downloadBtnVcard" class="mb-2 btn btn-sm btn-secondary">Contacts en Vcard</button>
                                             <button id="downloadBtnExcel" class="btn btn-sm btn-success">Contacts en excel</button>
