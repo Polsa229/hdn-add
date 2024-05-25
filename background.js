@@ -1,4 +1,4 @@
 chrome.runtime.onInstalled.addListener( () =>
 {
-    console.log( "WhatsApp Contact Extractor installed." );
+    console.log( "HDN-Add (extracteur de groupe) installé." );
 } );

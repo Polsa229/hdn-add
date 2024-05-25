@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Voyons Voir Add",
+  "name": "HDN-Add (extracteur de groupe)",
   "version": "1.0",
   "permissions": ["activeTab", "storage", "scripting"],
   "background": {
@@ -26,5 +26,8 @@
       "matches": ["https://web.whatsapp.com/*"],
       "js": ["extract-group.js"]
     }
-  ]
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
 }

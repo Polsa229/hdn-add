@@ -3,24 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WhatsApp Contact Extractor</title>
+    <title>HDN-Add (extracteur de groupe)</title>
+
     <style>
       body {
-        width: 200px;
+        width: 18rem;
       }
       button {
         width: 100%;
         padding: 10px;
-        margin: 10px 0;
+        margin: 2px 0;
       }
-          #result {
-      white-space: pre-wrap;
-    }
+      /* #result {
+        white-space: pre-wrap;
+      } */
     </style>
+
+    <link rel="stylesheet" href="bootstrap/bootstrap.css" />
+
+    <script src="xlsx.full.min.js_0.15.6/cdnjs/xlsx.full.min.js"></script>
     <script src="popup.js"></script>
   </head>
   <body>
-    <button id="extract">Extract Contacts</button>
-    <div id="result"></div>
+    <div class="container my-2">
+      <div class="card">
+        <div class="card-header">HDN-ADD</div>
+        <div class="card-body">
+          <h5 class="card-title">
+            HDN-ADD extracteur groupe
+            <!-- <span class="badge text-bg-secondary btn-sm" title="Détail">Détails</span> -->
+          </h5>
+          <p class="card-text">
+            <strong>HDN-ADD extracteur groupe</strong> vous permet d'extraire
+            les contacts non enrégistrés de vos groupes WhatsApp.
+          </p>
+          <div class="text-end">
+            <a id="extract" class="btn btn-sm btn-primary">Extraire</a>
+          </div>
+          <div class="my-0 p-0" id="result"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
